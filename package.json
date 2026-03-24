@@ -8,12 +8,12 @@
     "dev": "cross-env NODE_ENV=development tsx watch src/server.ts",
     "prod": "cross-env NODE_ENV=production tsx watch src/server.ts",
     "prisma:prod": "cross-env NODE_ENV=production npx prisma studio",
-    "start": "npx prisma migrate deploy && cross-env NODE_ENV=production node dist/server.js",
     "migrate:dev": "cross-env NODE_ENV=development npx prisma migrate dev",
     "migrate:prod": "cross-env NODE_ENV=production npx prisma migrate deploy",
     "test": "dotenv -e .env.test -- vitest",
-    "build": "tsc",
-    "prisma": "prisma"
+    "build": "prisma generate && tsc",
+    "prisma": "prisma",
+    "start": "npx prisma migrate deploy && node dist/server.js"
   },
   "repository": {
     "type": "git",
