@@ -1,6 +1,6 @@
 import { type Request, type Response, type NextFunction } from "express";
 import { subscribeToWaitlist, unsubscribeFromWaitlist } from "./service.js";
-import { subscribeSchema } from "./schema";
+import { subscribeSchema } from "./schema.js";
 import { welcomeMessage } from "../../utils/messages.js";
 
 export const handleSubscribe = async (
