@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { Router } from "express";
-import waitlistRoutes from "../modules/waitlist/route"
+import waitlistRoutes from "../modules/waitlist/route.js"
 
 const v1Router = Router();
 

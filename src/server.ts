@@ -1,6 +1,6 @@
 import app from "./app.js";
 import { env } from "./config/env.js";
-import { errorHandler } from "./middleware/error.middleware";
+import { errorHandler } from "./middleware/error.middleware.js";
 import dotenv from "dotenv";
 dotenv.config()
 

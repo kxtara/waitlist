@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer"
-import { env } from "../config/env";
-import { welcomeTemplate, customeTemplate } from "./templates";
+import { env } from "../config/env.js";
+import { welcomeTemplate, customeTemplate } from "./templates.js";
 
 const BASE_URL = process.env.APP_URL;
 // add unsubscribe link

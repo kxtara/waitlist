@@ -3,8 +3,8 @@ import cookieParser from "cookie-parser";
 import type { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
-import v1Router from "./routes/v1";
-import { errorHandler } from "./middleware/error.middleware";
+import v1Router from "./routes/v1.js";
+import { errorHandler } from "./middleware/error.middleware.js";
 
 const app = express();
 app.use('/images', express.static('public/images'));

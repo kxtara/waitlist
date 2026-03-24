@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { handleSubscribe,handleUnsubscribe } from "./controller";
-import { authLimiter } from "../../middleware/auth.middleware";
+import { handleSubscribe,handleUnsubscribe } from "./controller.js";
+import { authLimiter } from "../../middleware/auth.middleware.js";
 
 const router = Router();
 

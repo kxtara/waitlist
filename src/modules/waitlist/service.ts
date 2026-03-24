@@ -3,11 +3,11 @@
  * 
  * 
  */
-import { prisma } from "../../config/prisma";
+import { prisma } from "../../config/prisma.js";
 import type z from "zod";
-import type { subscribeSchema } from "./schema";
-import { Status } from "../../generated/prisma/enums";
-import { AppError } from "../../utils/AppError";
+import type { subscribeSchema } from "./schema.js";
+import { Status } from "../../generated/prisma/enums.js";
+import { AppError } from "../../utils/AppError.js";
 
 interface WaitlistResponse {
   status: Status;
