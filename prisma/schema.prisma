@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Use your existing datasource and generator blocks here
+
+model WaitlistEntry {
+  id            String   @id @default(uuid()) @db.Uuid
+  email         String   @unique
+  firstName     String?  @db.VarChar(100)
+  
+  // Tracking the user's environment for specialized updates (Mobile vs Web)
+  userAgent     String?  @db.Text
+  
+  // Marketing & Lifecycle Status
+  status        Status   @default(SUBSCRIBED)
+  
+  // Internal Analytics
+  signupSource  String?  @default("organic") // e.g., 'twitter', 'beta-landing', 'ig-ad'
+  
+  // NEW: Track when they were last contacted to avoid spamming
+  lastContactedAt DateTime?
+
+  // Timestamps
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([signupSource]) // Added index for your "filter by source" feature
+}
+
+model BroadcastLog {
+  id            String   @id @default(uuid()) @db.Uuid
+  title         String   // The subject line of the email
+  content        String   @db.Text // NEW: Store the actual message sent for history
+  sentAt        DateTime @default(now())
+  recipientCount Int
+  senderId      String   // Your Admin User ID
+  // NEW: Success vs Failure tracking
+  successCount   Int      @default(0)
+  failureCount   Int      @default(0)
+}
+
+enum Status {
+  SUBSCRIBED    // Active on the list
+  UNSUBSCRIBED  // User opted out
+  INVITED       // You sent them an early access link
+  JOINED        // They successfully created a full Chattri account
+  BOUNCED       // The email address was invalid/undeliverable
+}

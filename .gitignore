@@ -1,0 +1,16 @@
+/generated/prisma
+
+# Node modules
+node_modules/
+
+# TypeScript build output
+dist/
+
+# Environment variables
+.env
+.env.development
+.env.test
+.env.production
+
+# Logs
+*.log
