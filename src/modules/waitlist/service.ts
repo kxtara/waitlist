@@ -6,7 +6,7 @@
 import { prisma } from "../../config/prisma";
 import type z from "zod";
 import type { subscribeSchema } from "./schema";
-import { Status } from "../../../generated/prisma/enums";
+import { Status } from "../../generated/prisma/enums";
 import { AppError } from "../../utils/AppError";
 
 interface WaitlistResponse {
