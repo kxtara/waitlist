@@ -4,16 +4,15 @@
     // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
-
+"forceConsistentCasingInFileNames": true,
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "ESNext",
-    "target": "ES2023",
-    "moduleResolution": "bundler",
-    "types": [],
+    "module": "NodeNext",
+    "target": "ES2022",
+    "moduleResolution": "NodeNext",
     // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
+    "lib": ["ES2022"],
+    "types": [],
     // and npm install -D @types/node
 
     // Other Outputs
@@ -41,8 +40,7 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "esModuleInterop": true,
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
