@@ -1,12 +1,7 @@
-/**
- Subscribe / Unsubscribe to waitlist
- * 
- * 
- */
 import { prisma } from "../../config/prisma.js";
 import type z from "zod";
 import type { subscribeSchema } from "./schema.js";
-import { Status } from "../../generated/prisma/enums.js";
+import { Status } from "../../generated/prisma/client.js";
 import { AppError } from "../../utils/AppError.js";
 
 interface WaitlistResponse {
