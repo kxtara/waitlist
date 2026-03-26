@@ -27,7 +27,7 @@ export const subscribeToWaitlist = async (
       data: {
         email: data.email,
         status: Status.SUBSCRIBED,
-        userAgent: data.userAgent
+        userAgent: data.userAgent,
       },
       select: {
         status: true,
@@ -39,7 +39,7 @@ export const subscribeToWaitlist = async (
   return await prisma.waitlistEntry.create({
     data: {
       email: data.email,
-      userAgent : data.userAgent
+      userAgent: data.userAgent,
     },
 
     select: {
@@ -51,14 +51,14 @@ export const subscribeToWaitlist = async (
 
 export const unsubscribeFromWaitlist = async (
   email: string,
-): Promise<WaitlistResponse> => {
+): Promise<WaitlistResponse | null> => {
   // Check if user doesn't exists
   const existing = await prisma.waitlistEntry.findFirst({
     where: { email, status: Status.SUBSCRIBED },
   });
 
   if (!existing) {
-    throw new AppError("User not Found", 404, "USER_NOT_FOUND");
+    return null;
   }
 
   return await prisma.waitlistEntry.update({
