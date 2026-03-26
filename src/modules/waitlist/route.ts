@@ -5,6 +5,7 @@ import { authLimiter } from "../../middleware/auth.middleware.js";
 const router = Router();
 
 router.post('/subscribe',authLimiter,handleSubscribe);
-router.post('/unsubscribe',authLimiter,handleUnsubscribe);
+// for email links (default is get !post)
+router.get('/unsubscribe',authLimiter,handleUnsubscribe);
 
 export default router;
